@@ -1,0 +1,107 @@
+@charset "utf-8";
+/**---- Author : A modifier ----- Lycée Lacassagne ----- LYON ----**/
+
+/**---- Sélecteur universel ----**/
+* {
+	margin: 0;													/** dimensions de la marge ici 0 **/
+	padding: 0;													/** dimensions entre contenu et bordure (marge intérieure) **/
+	}
+
+
+/**---- Règles générales pour la page ----**/
+body {
+	margin: auto;												/** Dimensions de la marge**/
+	width: 800px;												/** fixe la largeur du bloc soit 800px (marge de la page à gauche et à droite) **/
+	background: #969995;										/** propriété du fond (couleur de l'arrière plan)**/
+	font-family: "Trebuchet MS", Verdana, serif;				/** nom de la police**/
+	padding-top: 20px;											/** marge en haut **/
+	}
+
+	
+/**---- En-Tête ----**/
+header {
+	background: #656565;
+	color: #8B4513;												/** couleur du texte **/
+	font-size: 20px;											/** taille du texte**/
+	font-variant: small-caps;									/** petites capitales **/
+	padding-left: 10px;
+	padding-bottom: 20px;
+	}
+
+	
+/**---- Menu sous-forme d'onglets ----**/
+nav {
+	width: 780px;
+	padding: 0px 10px 4px 10px;									/** Marge intérieur **/
+	list-style-type: none;										/** apparence d'un élément (none : aucun élément n'est affiché) **/
+	background: #656565;
+	}
+
+nav li {
+	display: inline;											/** type d'élément (encadrer par exemple (<span>) **/
+	padding: 2px;
+	font-weight: bold;											/** caractère, police gras (bold) **/
+	font-variant: small-caps;
+	text-align: center;
+	color: white;
+	}
+
+nav a {
+	text-decoration: none;										/** customisation du texte (soulignement, ligne au-dessus, barré ou clignotant **/
+	color: white;
+	}
+
+nav a:hover {														/** A commenter **/
+	color: #656565;
+	background: #FFD14B;
+	}
+
+	
+/**---- Règles valables pour la partie principale de la page ----**/
+section {
+	background: url('../images_du_site/Fond_section.png');		/** couleur de fond d'ecran (arrière-plan du site) **/
+	padding: 30px 0 10px 10px;
+	min-height: 600px											/** hauteur minimale**/
+	}
+
+section h1 {
+	margin-top: 15px;											/** marge en haut **/
+	margin-bottom: 8px;
+	font-size: 24px;
+	font-weight: bold;
+	text-decoration: underline;
+	color: #0C5081;
+	}
+
+	
+/**---- Pied de page ----**/
+footer {
+	text-align: center;
+	font-size: 12px;
+	color: #FFFFFF;
+	padding: 2px;
+	background: #656565;
+	border: 2px solid #FFFFFF;
+	border-radius: 0px 0px 8px 8px;								/** arrondi les coins des bordures en pixel**/
+	}
+
+	
+	h1 {                       /** mettre en bleu toutes les zones de texte "h1"**/
+	color:maroon
+	}
+	
+	h2 {
+	color:yellow
+	}
+	
+	blockquote{
+	color:white
+	}
+	
+	li {
+		color:silver
+	}
+	
+	 a {
+		color:teal
+	}

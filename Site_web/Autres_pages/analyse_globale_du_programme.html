@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta name="author" content="ISN Lycée Lacassagne" />
+		<meta charset="utf-8"/>
+		<title>
+			Analyse globale du programme
+		</title>
+		<link rel="stylesheet" media="screen" type="text/css" title="style" href="../Styles_CSS/style.css" />
+	</head>
+	
+	<body>
+		<div id="entete">
+		<h1>Le gif: une image animée</h1><br>
+		</div>
+
+		<div id="main">
+			<div id="menu">
+			<tr>	<td> <blockquote>
+<strong>	<tr>	<td> <li> <a href="../Introduction.html" target="_blank">Introduction</a> </td>
+	<tr>	<td> <li> <a href="presentation_du_projet.html" target="_blank">Présentation du projet</a> </td>
+	<tr>	<td> <li> <a href="cahier_des_charges.html" target="_blank">Cahier des charges</a> </td>
+	<tr>	<td> <li> <a href="analyse_globale_du_programme.html" target="_blank">Analyse du pgm</a> </td>
+	<tr>	<td> <li> <a href="calendrier_et_répartition_du_travail.html" target="_blank">Calendrier et répartition du travail</a> </td>
+	<tr>	<td> <li> <a href="organisation.html" target="_blank">Organisation générale du programme</a> </td>
+	<tr>	<td> <li> <a href="mon_travail.html" target="_blank">Mon travail au sein du groupe</a> </td>
+	<tr>	<td> <li> <a href="bilan.html" target="_blank">Conclusions</a> </td>
+	<tr>	<td> <li> <a href="annexes.html" target="_blank">Annexes</a> </td> </strong>
+	<br> </br>
+			</div>
+
+			<div id="contenu">	
+		
+		
+		<h2>Analyse globale du programme</h2><br>
+		
+		<tr>	<td> <blockquote>
+
+		<h2>Comportement type du programme</h2>
+
+On a d'abord l'importation des modules: PIL, imageio et numpy qui permettent la manipulation d'image et <br>
+la création d'un gif. <br>
+On ouvre le fichier 'Bac.jpg'. <br>
+On initilise les couleurs et les dimensions de l'image: h la hauteur et l la largeur de l'image. <br>
+On crée les nouvelles images: <html>im_test</html>.<br>
+<br></br>
+
+		<h2>Variables et Boucles utilisées</h2>
+		
+Ensuite, on crée la bande négative, k=0 représente l'image d'origine, c'est-à-dire l'image choisie par   <br>
+l'utilisateur. <br>
+La boucle Pour (For) avec la variable i qui varie dans l'intervalle [-25,h] représente l'ordonnée de     <br>
+l'image, c'est-à-dire la hauteur sur laquelle la bande défilera. Ainsi, elle commencera son déplacement  <br>
+avant y=0 et ira jusqu'au bas de l'image: h. <br>
+On crée les nouvelles images avec la bande négative grâce à 'im_nega = Image.new(couleur, (l, h))' afin de<br>
+récupérer les couleurs et les dimensions de l'image d'origine.
+Ensuite, on dit que la varaible y prendra ses valaurs dans la hauteur de l'image: h, et que la variable x<br>
+prendra ses valeurs dans la largeur: l. <br>
+'r, v, b = im.getpixel((x, y))' signifie que l'on récupère le triplet de couleurs de l'image. <br>
+'im_nega.putpixel((x,y), (r,v,b))' signifie que l'on injecte ce triplet à l'image choisie. <br><br> 
+La variable 'a=i+25' correspond aussi à l'ordonnée de l'image choisie, c'est-à-dire que la bande défilera<br>
+jusqu'au bas de l'image et continuera son déplacement de 1 pixel à chaque fois jusqu'à ce que la bande   <br>
+négative franchisse l'ordonnée y=h. Et c'est pour cela que l'on a utilisé une boucle Si (If) dans les 2  <br>
+cas 'a>h' et si 'i<0'.<br>
+Ainsi, la boucle Pour (For) y entre 'i' et 'a' signifie que l'ordonnée y prendra ses valeurs entre la    <br>
+variable 'i' et la variable 'a'.Et x prend ses valeurs dans l. <br>
+On récupère le triplet de couleurs et on les injecte de nouveau, mais cette fois si, grâce à la notation <br>
+'im_nega.putpixel((x, y ), (255-r, 255-v, 255-b))' ce qui signifie que les couleurs sont inversées.      <br><br>
+On entre 'k=k+1', afin de numéroter les images dans leur ordre d'apparition. <br>
+Et on les enregistre dans le shell grâce à 'im_nega.save('Im' + str(k+1) +'.gif')'. Ainsi, les nouvelles <br>
+images crées seront sous la forme '.jpg' et seront appelées 'Imk'.
+Enfin, on détruit les images crées afin de les compresser et de n'en former qu'une: le gif animé. <br>
+
+<br></br>
+<br></br>
+	</body>
+	<footer> Dossier-projet de Chaïma BENDIFFELLAH, T5S</footer>
+</html>

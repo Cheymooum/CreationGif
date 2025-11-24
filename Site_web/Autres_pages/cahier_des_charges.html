@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta name="author" content="ISN Lycée Lacassagne" />
+		<meta charset="utf-8"/>
+		<title>
+			Cahier des charges
+		</title>
+		<link rel="stylesheet" media="screen" type="text/css" title="style" href="../Styles_CSS/style.css" />
+	</head>
+
+	<body>
+		<div id="entete">
+		<h1>Le gif: une image animée</h1><br>
+		</div>
+
+		<div id="main">
+			<div id="menu">
+			<tr>	<td> <blockquote>
+<strong>	<tr>	<td> <li> <a href="../Introduction.html" target="_blank">Introduction</a> </td>
+	<tr>	<td> <li> <a href="presentation_du_projet.html" target="_blank">Présentation du projet</a> </td>
+	<tr>	<td> <li> <a href="cahier_des_charges.html" target="_blank">Cahier des charges</a> </td>
+	<tr>	<td> <li> <a href="analyse_globale_du_programme.html" target="_blank">Analyse du pgm</a> </td>
+	<tr>	<td> <li> <a href="calendrier_et_répartition_du_travail.html" target="_blank">Calendrier et répartition du travail</a> </td>
+	<tr>	<td> <li> <a href="organisation.html" target="_blank">Organisation générale du programme</a> </td>
+	<tr>	<td> <li> <a href="mon_travail.html" target="_blank">Mon travail au sein du groupe</a> </td>
+	<tr>	<td> <li> <a href="bilan.html" target="_blank">Conclusions</a> </td>
+	<tr>	<td> <li> <a href="annexes.html" target="_blank">Annexes</a> </td> </strong>
+	<br> </br>
+			</div>
+
+			<div id="contenu">
+			
+					
+		<h2>Cahier des charges</h2>
+		
+		<tr>	<td> <blockquote>
+
+<span class="souligne"><strong>Semaine 1: </strong></span><br>
+
+On cherche à obtenir une bande qui défile du haut vers le bas de l'image et qui affiche le négatif<br>
+ des couleurs d'origine sur son passage. Pour cela, on aura besoin du module PIL de python.       <br>
+A la fin du programme, on s'attend à obtenir une image animée sur laquelle défilera une bande qui <br>
+affichera le négatif de l'image localement. <br>
+<br>
+On aura besoin de: <br>
+-créer la bande noire qui inversera les couleurs (négatifs) localement, <br>
+-plusieurs images dans lesquelles la bande se déplacera d'un même pas à chaque fois. <br>
+Tout d'abord, on donne des dimensions à l'image choisie: <br>
+-h la hauteur sur l'axe des ordonnée, <br>
+-l la largeur sur l'axe des abscisses.<br>
+Le déplacement de la bande négative se fera:      <br>
+-à la même vitesse, c'est-à-dire avec un même pas,<br>
+-du haut vers le bas.                 <br>
+
+<img src="Images/image_1.jpeg" alt="image_1" /><br> <br>
+
+Problèmes rencontrés (Pb): <br>
+Pb1: On veut garder les dimensions de l'image d'origine. Donc, les dimensions des images 'crées' seront<br>
+celles de l'image d'origine.
+<br></br>
+
+<span class="souligne"><strong>Semaine 2:</strong></span><br>
+
+On souhaite utiliser une boucle While pour que la bande défile jusqu'au bas de l'image.    <br>
+
+<img src="Images/image_2.jpeg" alt="image_2" /><br> <br>
+
+Que se passe-t-il entre ces 2 images:           <br>
+-il y a un déplacement de y pixels vers le bas, <br>
+-la bande donne le négatif de l'image d'origine localement,                    <br>
+-il y a un déplacement de la bande négative de longueur l et de hauteur hb.    <br>
+-il y a création d'une Image_2 à partir de l'Image_1 avec un déplacement de la bande négative.   <br>
+
+<img src="Images/image_3.jpeg" alt="image_3" /><br> <br>
+
+Que se passe-t-il entre ces 2 images:  <br>
+-il y a un déplacement de y pixels vers le bas, <br>
+-la bande donne le négatif de l'image d'origine localement. <br><br>
+
+Pb2: Choisir une image existante ou non? -> Prendre une image quelconque, on en créera une plus tard si <br>
+on en a le temps. <br><br>
+
+Donc, on remarque que l'on utilise l'image d'origine avec des conditions: il y a des pixels modifiés. <br> <br>
+
+<img src="Images/image_4.jpeg" alt="image_4" /><br> <br>
+
+Légende: [///] Zone grisée, zone de l'image où la pixellisation est 'inversée', où apparaissent le <br>
+négatif des couleurs d'origine sur une surface: Aire(bande_négative)= l*hb. Autrement dit, l'aire de<br>
+la surface à pixeliser. <br>
+
+Pb3: Comment modifier la pixellisation dans une zone cible? -> Réponse dans le cour. <br><br>
+
+<img src="Images/image_5.jpeg" alt="image_5" /><br> <br>
+<img src="Images/image_6.jpeg" alt="image_6" /><br> <br>
+<img src="Images/image_7.jpeg" alt="image_7" /><br> <br>
+
+<br></br>
+
+<span class="souligne"><strong>Semaine 3:</strong></span><br>
+
+Pb4:  Comment enlever le noir par défaut du reste de l'image? Pour que l'image d'origine apparaisse   <br>
+avec la bande. -> On a enregistré les couleurs de l'image d'origine et les dimensions, afin de pouvoir<br>
+les modifier sur une zone cible. <br><br>
+
+<img src="Images/image_8.jpg" alt="image_8" /><br> <br>
+
+On a pensé à une boucle Tant que (While), mais la bande n'avance pas. <br>
+Puis, on testé avec des boucles Pour (For). <br>
+<br></br>
+
+<span class="souligne"><strong>Semaine 4:</strong></span><br>
+
+Pb5: Comment inverser les couleurs de la bande? -> (255-r)(255-r)(255-r) <br>
+
+Pb6:  On arrive pas à déplacer la barre. Il nous faut trouver la variable 'n' pour que la bande s'aggarandit<br>
+vers le bas mais qu'il n'y ai pas juste un avancement de la bande du haut vers le bas, on veut un mouvement<br>
+de la bande; -> On a utilisé une boucle Pour. <br><br>
+
+<img src="Images/image_9.jpeg" alt="image_9" /><br> <br>
+
+On a choisit une variable aléatoire 'i' dans l'intervalle [0, h], elle permettra à la bande de défiler du haut<br>
+de l'image vers le bas. <br><br>
+
+<img src="Images/image_10.jpeg" alt="image_10" /><br> <br>
+
+Pb7: Trouver la variable aléatoire 'n', pour faire avancer la bande, ainsi la bande s’agrandit vers le bas mais<br>
+il y aura un mouvement du haut vers le bas. On veut que le reste de l'image garde les couleurs de l'image      <br>
+d'origine, pour cela on a calculé l'aire de la surface restante qui est égale à: <br>
+Aire(surface_restante)= ((h-25)*l) <br>
+Avec 25, la hauteur de la bande négative. <br><br>
+
+Pb8: La bande s'agrandit du haut de l'image '+i' à chaque fois. Or, on veut qu'elle se déplace. <br><br>
+
+<span class="souligne"><strong>Vacances (mars/avril):</strong></span><br>
+
+On a pensé à une autre variable aléatoire 'n' qui s'ajoutera à l'ordonnée de la bande et qui fera en sorte <br>
+que l'origine de la bande se déplace. <br><br>
+
+Pb8: On veut que le rectangle restant sous la barre reprenne les couleurs de l'image d'origine et qu'autour<br>
+de la bande, c'est-à-dire au dessus et en dessous les couleurs soient celles de l'image d'origine. <br>
+<br></br>
+
+<span class="souligne"><strong>Semaine 5:</strong></span><br>
+
+Utilistation de l'image 'Bac'. Les dimensions de 'Bac.jpg' sont: l=400 et h=250, i=25. On va avoir 10 images<br>
+si on commence la bande à y=0 et elle va jusqu'à y=25. <br>
+Pb9: Quand on fait apparaître l'image_2, la bande noire du bas doit disparaître. (La bande noire du bas fait<br>
+y=25 <br><br>
+
+Pb10:  La bande s'arrête de défiler à une certaine hauteur non choisit par l’utilisateur. Mais, on souhaite <br>
+qu'elle s'arrête de défiler au bas de l'image, c'est-à-dire qu'elle doit défiler sur toute la hauteur de <br><br>
+
+l'image. On a essayé avec un boucle Pour (For), çà n'a pas marché. On a utilisé une boucle Si (If). <br>
+Rappelons ce que la bande doit faire: <br>
+-commencer de l'origine, <br>
+-afficher le négatif de l'image localement, <br>
+-se déplacer de 25 pixels avec un pas de 1. <br><br>
+
+Pb11: Comment enregistrer les images dans le shell et que chaque nouvelle image ai un nom propre qui la <br>
+différencie des autres? Ainsi, chaque image sera enregistré sous la forme: Im_1, Im_2, Im_3, ... dans le shell.<br><br>
+
+<span class="souligne"><strong>Semaine 6:</strong></span><br>
+
+On a pu trouver comment faire en sorte que la bande se déplace jusqu'en bas, grâce à une boucle Si (If) et<br>
+enregistrer les images crées dans le shell en les numérotant. On a eu 276 images avec la bande négative.  <br>
+Après avoir installé ImageMagick, on a entré le 2 dernières lignes de codes pour compresser les 'k' images<br>
+afin d'en avoir qu'une: l'image animée, le gif. <br><br>
+ 
+Pb12: Mais sur le gif, la bande se déplace du haut vers une certaine hauteur h non choisie, on a pensé à <br>
+une erreur dans le choix de classement de numérotation des images. Ainsi, il faut trier les images.      <br>
+
+<br></br>
+<br></br>
+	</body>
+			</div>
+		</div>
+
+		<div id="footer">
+			<footer> Dossier-projet de Chaïma BENDIFFELLAH, T5S</footer>
+		</div>
+</html>

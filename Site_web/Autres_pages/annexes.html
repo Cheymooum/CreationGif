@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta name="author" content="ISN Lycée Lacassagne" />
+		<meta charset="utf-8"/>
+		<title>
+			Annexes
+		</title>
+		<link rel="stylesheet" media="screen" type="text/css" title="style" href="../Styles_CSS/style.css" />
+	</head>
+
+	<body>
+		<div id="entete">
+		<h1>Le gif: une image animée</h1><br>
+		</div>
+
+		<div id="main">
+			<div id="menu">
+			<tr>	<td> <blockquote>
+<strong>	<tr>	<td> <li> <a href="../Introduction.html" target="_blank">Introduction</a> </td>
+	<tr>	<td> <li> <a href="presentation_du_projet.html" target="_blank">Présentation du projet</a> </td>
+	<tr>	<td> <li> <a href="cahier_des_charges.html" target="_blank">Cahier des charges</a> </td>
+	<tr>	<td> <li> <a href="analyse_globale_du_programme.html" target="_blank">Analyse du pgm</a> </td>
+	<tr>	<td> <li> <a href="calendrier_et_répartition_du_travail.html" target="_blank">Calendrier et répartition du travail</a> </td>
+	<tr>	<td> <li> <a href="organisation.html" target="_blank">Organisation générale du programme</a> </td>
+	<tr>	<td> <li> <a href="mon_travail.html" target="_blank">Mon travail au sein du groupe</a> </td>
+	<tr>	<td> <li> <a href="bilan.html" target="_blank">Conclusions</a> </td>
+	<tr>	<td> <li> <a href="annexes.html" target="_blank">Annexes</a> </td> </strong>
+	<br> </br>
+			</div>
+
+			<div id="contenu">
+			
+	
+		<h2>Sitographie du projet</h2><br>
+		
+		<tr>	<td> <blockquote>
+		
+On a surtout eu besoin du site de la classe: 'http://mathinfo.ovh/ISN/index_general.html'. <br>
+Mais on a aussi cherché sur internet des réponses à nos questions. Comme par exmple, comment créer <br>
+une bande sur une image. <br>
+J'ai cherché aussi sur le site: 'https://openclassrooms.com/forum/sujet/le-module-pil-sur-python-3-4'<br>
+ des réponses à mes questions. <br><br>
+
+		<h2>Sitographie du dossier-projet</h2><br>
+		
+J'ai utilisé ce qu'on a réalisé avec Amine pour le mini-projet html avec les téléphones.<br>
+Je me suis aidé du cour sur le site de la classe : 'http://mathinfo.ovh/ISN/index_general.html', <br>
+de openclassrooms 'https://openclassrooms.com/courses/apprenez-a-creer-votre-site-web-avec-html5-et-css3' <br>
+et de zonecss sur 'https://www.zonecss.fr/cours-css/les-formats-de-couleur-css.html#les-couleurs-en-css'. <br><br>
+
+		<h2>Code source du programme</h2><br>
+		
+# L'utilisateur doit choisir une image et la nommer 'Bac' <br>
+# Pour installer 'imageio', entrer : " conda install imageio " dans la console <br>
+##----- Importation des modules -----## <br>
+from PIL import Image <br>
+import imageio                                                      # ? Pour GIF ? <br>
+import numpy  <br><br>
+
+##----- Ouverture des Fichiers -----## <br>
+im = Image.open('Bac.jpg') <br><br>
+
+##----- Dimensions de l'image choisie par l'utilisateur -----## <br>
+couleur = im.mode <br>
+l, h = im.size    <br>
+print('largeur : {} et hauteur : {}'.format(l, h)) # Donne largeur & longueur de l'image <br><br>
+
+##----- Creation d'une nouvelle image -----## <br>
+im_test = Image.new('RGB', (l, h)) #Creation d'une nouvelle image <br><br>
+
+##----- Bande Négative -----## <br>
+images = []                                                         # ? Pour GIF ? <br>
+k=0                                                                 # Compteur pour numéroter les nouvelles images <br><br>
+
+for i in range(-22,h):                                              # Boucle sur la verticale de l'image avec un <br>
+																	rectangle qui se deplace sur toute  la <br>
+																	largeur l (la largeur du rectangle fait 25 pixels) <br><br>
+
+    a=i+22;                                                         # Encadrement complet de l'image avec "+22" <br>
+																	en haut et "-22" en bas <br>
+    im_nega = Image.new(couleur, (l, h))                            # Symetrie horizontale <br>
+    for y in range(h):                                              # Pour y allant de 1 à h <br>
+       for x in range(l):                                           # On parcourt chaque pixel de l'image analysée plus haut <br>
+          r, v, b = im.getpixel((x,y))                              # Récupération tu triplet de couleur (saisi des pixels)  <br>
+          im_nega.putpixel((x,y), (r,v,b))                          # Injection des pixels <br>
+            
+    if a>h:                                                         # Si le bord > de l'image négative dépasse la largeur de <br>
+																	l'image original  alors, la largeur de la b-n devient de <br>
+																	plus en plus petite jusqu'à 0. <br>
+        a=h <br><br>
+    
+    if i<0: <br>
+        i=0                                                         # Même chose pour le bord supérieur (>) de l'image négative <br><br>
+            
+    for y in range(i,a):                                            # Image négative de largeur 25 <br>
+        for x in range(l):                                          # On parcourt chaque pixel de l'image analysée plus haut <br>
+            r, v, b = im.getpixel((x,y))                            # On récupère le triplet de couleur <br>
+            im_nega.putpixel((x, y ), (255-r, 255-v, 255-b))        # Injection des pixels négatif <br><br>
+
+##----- Enregistrement et affichage des nouvelles images -----##  <br><br>
+
+    k=k+1                                                           # Numérotation des nouvelles images <br>
+    im_nega.save('Im' + str(k) +'.png')                             # Enregistrement des nouvelles images en .png commencant par 'Im <br>
+#    im_nega.show()                                                 # Visionage des nouvelles images dès le lancement du programme   <br><br>
+
+##----- Création du GIF -----## <br><br>
+
+    images.append(numpy.asarray(im_nega))                           # ? Pour GIF ? <br>
+imageio.mimsave('BacAnimé.gif',images,duration = 0.0001)            # ? Pour GIF ? <br>
+
+
+<br></br>
+<br></br>
+	</body>
+			</div>
+		</div>
+
+		<div id="footer">
+			<footer> Dossier-projet de Chaïma BENDIFFELLAH, T5S</footer>
+		</div>
+</html>
