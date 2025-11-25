@@ -1,4 +1,6 @@
+# Le gif: une image animée
 # CreationGif
+
 Projet de Bac spécialité ISN, en langage Python
 
 Présentation du Projet
@@ -29,3 +31,7 @@ de l’image doit défiler sur toute la hauteur de l’image choisie.
 On a calculé l'aire de la surface restante, c'est-à-dire l'aire au dessus et en dessous de la bande. Et
 cela nous donne: Aire(surface_autour_bande)= (h-25)*l. On a aussi fait le calcul du nombre d'images necéssaires, qui varie en fonction de la hauteur de la
 bande négative.
+
+# Dossier Projet : Un site wweb explicatif
+
+Lors de notre projet, il nous a été demandé de créer un site web avec du code html et du css, un site qui aborde tous les problèmes rencontrés, comment nous avons avancé dans ce projet etc.
